@@ -5,6 +5,5 @@
 	<classpathentry kind="lib" path="/Users/batman/Dev/Java/Ludum GL/LudumGL-0021/lib/ludumgl-lib.jar"/>
 	<classpathentry kind="lib" path="/Users/batman/Dev/Java/Ludum GL/LudumGL-0021/lib/lwjgl.jar"/>
 	<classpathentry kind="lib" path="/Users/batman/Dev/Java/Ludum GL/LudumGL-0021/lib/slick-util.jar"/>
-	<classpathentry kind="lib" path="/Users/batman/Dev/Java/Ludum GL/LudumGL-0021/goodies/amittainet.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
