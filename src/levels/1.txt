@@ -1,4 +1,7 @@
-player Red 75 75
-player Blue 75 150
+player Red 25 25
+player Blue 25 100
 
 display 0 450 15 100 0
+
+lever 100 585 50 15 5
+lever 200 585 50 15 6

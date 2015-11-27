@@ -1,6 +1,7 @@
 package com.amittaigames.dotbin.items;
 
 import com.amittaigames.dotbin.Binary;
+import com.amittaigames.dotbin.Message;
 import com.amittaigames.ludumgl.graphics.Rect;
 
 public class BinDisplay extends Item {
@@ -19,6 +20,17 @@ public class BinDisplay extends Item {
 	
 	@Override
 	public void onCollision() {
+		Message.text = "Binary: " + bin;
+		Message.shown = true;
+	}
+	
+	@Override
+	public void onNoCollision() {
+		Message.shown = false;
+	}
+	
+	@Override
+	public void onInteraction() {
 		
 	}
 	
