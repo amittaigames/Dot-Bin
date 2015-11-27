@@ -43,13 +43,13 @@ public class Main {
 				Game.inst = new Game();
 				LevelHandler.loadLevel(Integer.parseInt(tLevel.getText()));
 				Window.config(1, 1);
-				Window.init(".BIN - " + Game.VERSION, 800, 600, Game.inst, Integer.parseInt(tFPS.getText()));
+				Window.init(".BIN - " + Game.VERSION, Game.WIDTH, Game.HEIGHT, Game.inst, Integer.parseInt(tFPS.getText()));
 			}
 		});
 		content.add(bHost);
 		
 		frame.setContentPane(content);
-		frame.setSize(400, 300);
+		frame.setSize(500, 400);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+import com.amittaigames.dotbin.items.BinDisplay;
 import com.amittaigames.ludumgl.graphics.Rect;
 
 public class LevelHandler {
@@ -26,8 +27,15 @@ public class LevelHandler {
 					if (args[1].equals("Blue")) {
 						color = new Color(124, 202, 235);
 					}
-					Rect rect = new Rect(Integer.parseInt(args[2]), Integer.parseInt(args[3]), 75, 75);
+					if (args[1].equals("Green")) {
+						color = new Color(124, 217, 162);
+					}
+					Rect rect = new Rect(Integer.parseInt(args[2]), Integer.parseInt(args[3]), 50, 50);
 					new Player(rect, color);
+				}
+				if (args[0].equals("display")) {
+					new BinDisplay(new Rect(Integer.parseInt(args[1]), Integer.parseInt(args[2]),
+							Integer.parseInt(args[3]), Integer.parseInt(args[4])), Integer.parseInt(args[5]));
 				}
 			}
 			

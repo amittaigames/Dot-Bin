@@ -1,2 +1,4 @@
-player Red 100 100
-player Blue 100 200
+player Red 75 75
+player Blue 75 150
+
+display 0 450 15 100 0
