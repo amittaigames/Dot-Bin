@@ -19,7 +19,7 @@ public class BinDisplay extends Item {
 	}
 	
 	@Override
-	public void onCollision() {
+	public void onCollision(float x, float y) {
 		Message.text = "Binary: " + bin;
 		Message.shown = true;
 	}
@@ -30,7 +30,7 @@ public class BinDisplay extends Item {
 	}
 	
 	@Override
-	public void onInteraction() {
+	public void onInteraction(float x, float y) {
 		
 	}
 	

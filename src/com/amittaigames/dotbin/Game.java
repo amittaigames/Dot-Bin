@@ -9,6 +9,7 @@ import org.lwjgl.opengl.GL11;
 import com.amittaigames.dotbin.items.BinDisplay;
 import com.amittaigames.dotbin.items.Item;
 import com.amittaigames.dotbin.items.Lever;
+import com.amittaigames.dotbin.items.Wall;
 import com.amittaigames.ludumgl.CoreGame;
 import com.amittaigames.ludumgl.graphics.FontHandler;
 import com.amittaigames.ludumgl.graphics.Render;
@@ -39,9 +40,12 @@ public class Game extends CoreGame {
 			}
 			if (i instanceof Lever) {
 				if (((Lever) i).isOn())
-					c = new Color(173, 173, 173);
+					c = new Color(173, 173, 173); // Off
 				else
-					c = new Color(87, 87, 87);
+					c = new Color(87, 87, 87); // On
+			}
+			if (i instanceof Wall) {
+				c = new Color(18, 18, 18);
 			}
 			r.setColor(c.getRed(), c.getGreen(), c.getBlue());
 			r.fillRect(i.getRect());
@@ -91,14 +95,14 @@ public class Game extends CoreGame {
 		Player p = Player.list.get(Player.selected);
 		
 		for (Item i : Item.list) {
-			if (i.getRect().getX() + i.getRect().getWidth() > p.getRect().getX() &&
-					i.getRect().getX() - i.getRect().getWidth() < p.getRect().getX() + p.getRect().getWidth() &&
-					i.getRect().getY() + i.getRect().getHeight() > p.getRect().getY() &&
-					i.getRect().getY() - i.getRect().getHeight() < p.getRect().getY() + p.getRect().getHeight()) {
-				i.onCollision();
+			if (p.getRect().getX() + p.getRect().getWidth() > i.getRect().getX() &&
+					p.getRect().getY() + p.getRect().getHeight() > i.getRect().getY() &&
+					p.getRect().getX() < i.getRect().getX() + i.getRect().getWidth() &&
+					p.getRect().getY() < i.getRect().getY() + i.getRect().getHeight()) {
+				i.onCollision(p.getRect().getX(), p.getRect().getY());
 				if (Keyboard.isKeyDown(Keyboard.KEY_E)) {
 					if (!i.getInteracted()) {
-						i.onInteraction();
+						i.onInteraction(p.getRect().getX(), p.getRect().getY());
 						i.setInteracted(true);
 					}
 				} else {

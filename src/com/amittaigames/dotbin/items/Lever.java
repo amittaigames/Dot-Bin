@@ -17,7 +17,7 @@ public class Lever extends Item {
 	}
 
 	@Override
-	public void onCollision() {
+	public void onCollision(float x, float y) {
 		
 	}
 
@@ -27,7 +27,7 @@ public class Lever extends Item {
 	}
 
 	@Override
-	public void onInteraction() {
+	public void onInteraction(float x, float y) {
 		BinDisplay display = null;
 		for (Item i : Item.list) {
 			if (i instanceof BinDisplay) {

@@ -3,5 +3,7 @@ player Blue 25 100
 
 display 0 450 15 100 0
 
-lever 100 585 50 15 5
-lever 200 585 50 15 6
+lever 100 585 50 15 1
+lever 200 585 50 15 2
+
+wall 500 150 300 25

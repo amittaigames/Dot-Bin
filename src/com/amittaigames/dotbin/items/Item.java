@@ -16,9 +16,9 @@ public abstract class Item {
 		this.rect = rect;
 	}
 	
-	public abstract void onCollision();
+	public abstract void onCollision(float x, float y);
 	public abstract void onNoCollision();
-	public abstract void onInteraction();
+	public abstract void onInteraction(float x, float y);
 	
 	public Rect getRect() {
 		return this.rect;
