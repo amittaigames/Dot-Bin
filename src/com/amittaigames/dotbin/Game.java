@@ -18,7 +18,7 @@ public class Game extends CoreGame {
 	
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 600;
-	public static final String VERSION = "0.1";
+	public static final String VERSION = "0.2";
 	public static Game inst;
 	
 	@Override
