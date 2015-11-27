@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/Users/batman/Dev/Java/Ludum GL/LudumGL-0021/lib/ludumgl-lib.jar"/>
+	<classpathentry kind="lib" path="/Users/batman/Dev/Java/Ludum GL/ludumgl-lib.jar"/>
 	<classpathentry kind="lib" path="/Users/batman/Dev/Java/Ludum GL/LudumGL-0021/lib/lwjgl.jar"/>
 	<classpathentry kind="lib" path="/Users/batman/Dev/Java/Ludum GL/LudumGL-0021/lib/slick-util.jar"/>
 	<classpathentry kind="output" path="bin"/>

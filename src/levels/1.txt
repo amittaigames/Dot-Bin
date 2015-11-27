@@ -1,0 +1,2 @@
+player Red 100 100
+player Blue 100 200

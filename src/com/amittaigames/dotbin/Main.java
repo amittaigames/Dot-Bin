@@ -26,8 +26,14 @@ public class Main {
 		final JLabel lFPS = new JLabel("FPS:");
 		content.add(lFPS);
 		
-		final JTextField tFPS = new JTextField("30");
+		final JTextField tFPS = new JTextField("60");
 		content.add(tFPS);
+		
+		final JLabel lLevel = new JLabel("Level:");
+		content.add(lLevel);
+		
+		final JTextField tLevel = new JTextField("1");
+		content.add(tLevel);
 		
 		final JButton bHost = new JButton("Start Game");
 		bHost.addActionListener(new ActionListener() {
@@ -35,6 +41,7 @@ public class Main {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				Game.inst = new Game();
+				LevelHandler.loadLevel(Integer.parseInt(tLevel.getText()));
 				Window.config(1, 1);
 				Window.init(".BIN - " + Game.VERSION, 800, 600, Game.inst, Integer.parseInt(tFPS.getText()));
 			}
