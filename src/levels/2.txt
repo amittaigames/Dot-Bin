@@ -1,0 +1,16 @@
+player Red 25 25
+player Blue 25 100
+
+display 50 585 100 15 0
+
+lever 0 300 15 50 3
+lever 0 375 15 50 5
+lever 785 500 15 50 6
+
+wall 500 425 300 25
+door 500 450 25 275 8
+
+wall 500 150 300 25
+door 500 0 25 150 9
+
+finish 625 50

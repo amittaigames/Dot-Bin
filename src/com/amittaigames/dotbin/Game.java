@@ -22,6 +22,7 @@ public class Game extends CoreGame {
 	
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 600;
+	public static final boolean DEBUG = true;
 	public static final String VERSION = "0.4";
 	public static Game inst;
 	
@@ -110,6 +111,12 @@ public class Game extends CoreGame {
 		}
 		if (Keyboard.isKeyDown(Keyboard.KEY_W)) {
 			Player.list.get(Player.selected).getRect().translate(0, -(delta / Player.speed));
+		}
+		
+		if (DEBUG) {
+			if (Keyboard.isKeyDown(Keyboard.KEY_F5)) {
+				LevelHandler.loadLevel(LevelHandler.LEVEL);
+			}
 		}
 		
 		Player p = Player.list.get(Player.selected);

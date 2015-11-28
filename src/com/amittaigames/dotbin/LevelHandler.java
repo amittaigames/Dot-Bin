@@ -18,7 +18,7 @@ import com.amittaigames.ludumgl.graphics.Rect;
 public class LevelHandler {
 
 	public static int LEVEL;
-	public static int LEVEL_MAX = 1;
+	public static int LEVEL_MAX = 2;
 	public static boolean load1 = true;
 	public static boolean load2 = true;
 	public static boolean loading = false;
