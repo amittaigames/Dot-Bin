@@ -7,11 +7,14 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import com.amittaigames.dotbin.items.BinDisplay;
+import com.amittaigames.dotbin.items.CustomText;
 import com.amittaigames.dotbin.items.Door;
+import com.amittaigames.dotbin.items.Finish;
 import com.amittaigames.dotbin.items.Item;
 import com.amittaigames.dotbin.items.Lever;
 import com.amittaigames.dotbin.items.Wall;
 import com.amittaigames.ludumgl.CoreGame;
+import com.amittaigames.ludumgl.Window;
 import com.amittaigames.ludumgl.graphics.FontHandler;
 import com.amittaigames.ludumgl.graphics.Render;
 
@@ -19,7 +22,7 @@ public class Game extends CoreGame {
 	
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 600;
-	public static final String VERSION = "0.3";
+	public static final String VERSION = "0.4";
 	public static Game inst;
 	
 	@Override
@@ -54,9 +57,19 @@ public class Game extends CoreGame {
 				else
 					c = Color.BLACK;
 			}
+			if (i instanceof Finish) {
+				c = new Color(99, 230, 110);
+			}
 			r.setColor(c.getRed(), c.getGreen(), c.getBlue());
 			if (c != Color.BLACK)
 				r.fillRect(i.getRect());
+		}
+		
+		// Custom Text
+		r.setColor(0, 0, 0);
+		FontHandler.setFont("Arial 16");
+		for (CustomText text : CustomText.list) {
+			r.drawText(text.getText(), text.getX(), text.getY());
 		}
 		
 		// Players
@@ -72,7 +85,6 @@ public class Game extends CoreGame {
 		
 		// Message
 		r.setColor(0, 0, 0);
-		FontHandler.setFont("Arial 16");
 		if (Message.shown)
 			r.drawText(Message.text, 15, 15);
 	}
@@ -101,12 +113,12 @@ public class Game extends CoreGame {
 		}
 		
 		Player p = Player.list.get(Player.selected);
-		
-		for (Item i : Item.list) {
-			if (p.getRect().getX() + p.getRect().getWidth() > i.getRect().getX() &&
-					p.getRect().getY() + p.getRect().getHeight() > i.getRect().getY() &&
-					p.getRect().getX() < i.getRect().getX() + i.getRect().getWidth() &&
-					p.getRect().getY() < i.getRect().getY() + i.getRect().getHeight()) {
+		for (int it = 0; it < Item.list.size(); it++) {
+			Item i = Item.list.get(it);
+			if (p.getRect().getX() + p.getRect().getWidth() > i.getRect().getX()
+					&& p.getRect().getY() + p.getRect().getHeight() > i.getRect().getY()
+					&& p.getRect().getX() < i.getRect().getX() + i.getRect().getWidth()
+					&& p.getRect().getY() < i.getRect().getY() + i.getRect().getHeight()) {
 				i.onCollision(p.getRect().getX(), p.getRect().getY());
 				if (Keyboard.isKeyDown(Keyboard.KEY_E)) {
 					if (!i.getInteracted()) {
@@ -120,7 +132,7 @@ public class Game extends CoreGame {
 				i.onNoCollision();
 			}
 		}
-		
+			
 		if (p.getRect().getX() < 0) {
 			p.getRect().setX(0);
 		}
@@ -133,6 +145,8 @@ public class Game extends CoreGame {
 		if (p.getRect().getY() + p.getRect().getHeight() > HEIGHT) {
 			p.getRect().setY(HEIGHT - p.getRect().getHeight());
 		}
+		
+		Window.setTitle(".BIN - " + VERSION + " - (" + Window.getCurrentFPS() + ")");
 	}
 	
 }

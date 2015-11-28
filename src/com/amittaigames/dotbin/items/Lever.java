@@ -1,5 +1,7 @@
 package com.amittaigames.dotbin.items;
 
+import com.amittaigames.dotbin.Binary;
+import com.amittaigames.dotbin.Message;
 import com.amittaigames.ludumgl.graphics.Rect;
 
 public class Lever extends Item {
@@ -18,7 +20,8 @@ public class Lever extends Item {
 
 	@Override
 	public void onCollision(float x, float y) {
-		
+		Message.text = "Binary: " + Binary.decToBin(dec);
+		Message.shown = true;
 	}
 
 	@Override

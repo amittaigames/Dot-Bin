@@ -41,7 +41,8 @@ public class Main {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				Game.inst = new Game();
-				LevelHandler.loadLevel(Integer.parseInt(tLevel.getText()));
+				LevelHandler.LEVEL = Integer.parseInt(tLevel.getText());
+				LevelHandler.loadLevel(LevelHandler.LEVEL);
 				Window.config(1, 1);
 				Window.init(".BIN - " + Game.VERSION, Game.WIDTH, Game.HEIGHT, Game.inst, Integer.parseInt(tFPS.getText()));
 			}
