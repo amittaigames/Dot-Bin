@@ -7,6 +7,7 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import com.amittaigames.dotbin.items.BinDisplay;
+import com.amittaigames.dotbin.items.Door;
 import com.amittaigames.dotbin.items.Item;
 import com.amittaigames.dotbin.items.Lever;
 import com.amittaigames.dotbin.items.Wall;
@@ -18,7 +19,7 @@ public class Game extends CoreGame {
 	
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 600;
-	public static final String VERSION = "0.2";
+	public static final String VERSION = "0.3";
 	public static Game inst;
 	
 	@Override
@@ -46,6 +47,9 @@ public class Game extends CoreGame {
 			}
 			if (i instanceof Wall) {
 				c = new Color(18, 18, 18);
+			}
+			if (i instanceof Door) {
+				c = new Color(133, 106, 19);
 			}
 			r.setColor(c.getRed(), c.getGreen(), c.getBlue());
 			r.fillRect(i.getRect());

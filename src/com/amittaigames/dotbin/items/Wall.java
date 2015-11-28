@@ -16,17 +16,17 @@ public class Wall extends Item {
 	@Override
 	public void onCollision(float x, float y) {
 		Player p = Player.list.get(Player.selected);
-		if (x >= rect.getX()) {
-			p.getRect().translate(Player.speed, 0);
+		if (x + p.getRect().getWidth() >= rect.getX() && x + p.getRect().getWidth() <= rect.getX() + Player.speed) {
+			p.getRect().setX(rect.getX() - p.getRect().getWidth());
 		}
-		if (x <= rect.getX()) {
-			p.getRect().translate(-Player.speed, 0);
+		if (y + p.getRect().getHeight() >= rect.getY() && y + p.getRect().getHeight() <= rect.getY() + Player.speed) {
+			p.getRect().setY(rect.getY() - p.getRect().getHeight());
 		}
-		if (y >= rect.getY()) {
-			p.getRect().translate(0, Player.speed);
+		if (x <= rect.getX() + rect.getWidth() && x >= rect.getX() + rect.getWidth() - Player.speed) {
+			p.getRect().setX(rect.getX() + rect.getWidth());
 		}
-		if (y <= rect.getY()) {
-			p.getRect().translate(0, -Player.speed);
+		if (y <= rect.getY() + rect.getHeight() && y >= rect.getY() + rect.getHeight() - Player.speed) {
+			p.getRect().setY(rect.getY() + rect.getHeight());
 		}
 	}
 

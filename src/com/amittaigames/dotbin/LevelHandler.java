@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 import com.amittaigames.dotbin.items.BinDisplay;
+import com.amittaigames.dotbin.items.Door;
 import com.amittaigames.dotbin.items.Lever;
 import com.amittaigames.dotbin.items.Wall;
 import com.amittaigames.ludumgl.graphics.Rect;
@@ -46,6 +47,10 @@ public class LevelHandler {
 				if (args[0].equals("wall")) {
 					new Wall(new Rect(Integer.parseInt(args[1]), Integer.parseInt(args[2]),
 							Integer.parseInt(args[3]), Integer.parseInt(args[4])));
+				}
+				if (args[0].equals("door")) {
+					new Door(new Rect(Integer.parseInt(args[1]), Integer.parseInt(args[2]),
+							Integer.parseInt(args[3]), Integer.parseInt(args[4])), Integer.parseInt(args[5]));
 				}
 			}
 			
