@@ -37,6 +37,11 @@ public class BinDisplay extends Item {
 	public void setNumbers(int dec) {
 		this.dec = dec;
 		this.bin = Binary.decToBin(dec);
+		for (Item i : Item.list) {
+			if (i instanceof NumberListener) {
+				((NumberListener) i).numberChanged(dec);
+			}
+		}
 	}
 	
 	public Rect getRect() {

@@ -49,10 +49,14 @@ public class Game extends CoreGame {
 				c = new Color(18, 18, 18);
 			}
 			if (i instanceof Door) {
-				c = new Color(133, 106, 19);
+				if (!((Door) i).isOpen())
+					c = new Color(133, 106, 19);
+				else
+					c = Color.BLACK;
 			}
 			r.setColor(c.getRed(), c.getGreen(), c.getBlue());
-			r.fillRect(i.getRect());
+			if (c != Color.BLACK)
+				r.fillRect(i.getRect());
 		}
 		
 		// Players

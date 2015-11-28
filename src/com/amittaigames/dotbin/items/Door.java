@@ -4,7 +4,7 @@ import com.amittaigames.dotbin.Message;
 import com.amittaigames.dotbin.Player;
 import com.amittaigames.ludumgl.graphics.Rect;
 
-public class Door extends Wall {
+public class Door extends Wall implements NumberListener {
 
 	private Rect rect;
 	private int opensOn;
@@ -15,6 +15,15 @@ public class Door extends Wall {
 		this.rect = rect;
 		this.opensOn = opensOn;
 		this.open = false;
+	}
+	
+	@Override
+	public void numberChanged(int num) {
+		if (num == opensOn) {
+			open = true;
+		} else {
+			open = false;
+		}
 	}
 	
 	@Override
@@ -41,7 +50,11 @@ public class Door extends Wall {
 	
 	@Override
 	public void onNoCollision() {
-		Message.shown = false;
+		
+	}
+	
+	public boolean isOpen() {
+		return open;
 	}
 	
 	public Rect getRect() {
